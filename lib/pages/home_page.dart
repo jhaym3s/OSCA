@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oscafest/app_theme.dart';
 import 'package:oscafest/screen/grid_screen.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
 
@@ -10,6 +9,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+   String? categoryPressed = "All Products";
+  List<String> category = [
+    "All Products",
+    "Sweatshirts",
+    "Furniture",
+    "Stickers",
+    "Bags",
+    "T-Shirts"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,16 +66,16 @@ class _HomePageState extends State<HomePage> {
                   height: 40,
                   width: MediaQuery.of(context).size.width,
                   child: ListView.builder(
-                    itemCount: 6,//categoryItems.length,
+                    itemCount: category.length,//categoryItems.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            //currentCategory = categoryItems[index].nameOfCategory;
+                              categoryPressed = category[index];
                           });
                         },
-                        child: const Text("All Products"),
+                        child:  Text(category[index]),
                         style: ElevatedButton.styleFrom(primary: Colors.white24,shape: RoundedRectangleBorder(
                             borderRadius:
                              BorderRadius.circular(30.0)),)
@@ -77,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-                const Expanded(child: GridWidget())
+                  Expanded(child: GridWidget(categoryPressed: categoryPressed,))
         ],),
       )
       ),

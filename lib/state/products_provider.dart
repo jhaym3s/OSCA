@@ -8,42 +8,42 @@ class ListOfProduct with ChangeNotifier{
     Products(
     imagePath: "assets/images/sca.jpg",
     productName:"SCA sweatshirt",
-    category: "Sweatshirts",
+    category: Category.sweatShirt,
     id: "a1",
     sizesAvailable: ["S", "M","L","XL","XXL"],
     price:99.0),
     Products(
       imagePath: "assets/images/OS_sweatshirt3.jpg",
       productName: "Yellow Osca fest sweatshirt",
-      category: "Sweatshirts",
+      category: Category.sweatShirt,
       sizesAvailable: ["L","XL","XXL"],
       id: "a2",
       price:45.34),
     Products(
       imagePath: "assets/images/OS_sweatshirt1.jpg",
       productName: "Osca fest",
-      category: "Sweatshirts",
+      category: Category.sweatShirt,
       id: "a3",
       sizesAvailable: [ "M","L","XL","XXL"],
       price:20.34),
     Products(
       imagePath: "assets/images/OS_sweatshirt1.jpg",
       productName: "Osca fest",
-      category: "Sweatshirts",
+      category: Category.sweatShirt,
       id: "a4", 
       sizesAvailable: ["S", "M","L","XL"],
       price:15.34),
     Products(
       imagePath: "assets/images/OS_polo1.jpg",
       productName: "Osca fest",
-      category: "Open source polo",
+      category: Category.tShirts,
       id: "a5",
       sizesAvailable: ["S", "M","L","XL","XXL"],
       price:49.34),
     Products(
       imagePath: "assets/images/OS_sweatshirt1.jpg",
       productName: "Osca fest",
-      category: "Sweatshirts",
+      category: Category.sweatShirt,
       id: "a6",
       sizesAvailable: [ "M","L"],
       price:415.34),
@@ -61,23 +61,23 @@ class ListOfProduct with ChangeNotifier{
     // getting all products
   }
   List<Products> get getSweatshirts {
-    return _products.where((element) => element.category =="Sweatshirts").toList();
+    return _products.where((element) => element.category ==Category.sweatShirt).toList();
     //get only sweatshirt
   }
   List<Products> get getFurniture {
-    return _products.where((element) => element.category =="Furniture").toList();
+    return _products.where((element) => element.category ==Category.furniture).toList();
     //get only sweatshirt
   }
   List<Products> get getStickers {
-    return _products.where((element) => element.category =="Stickers").toList();
+    return _products.where((element) => element.category ==Category.stickers).toList();
     //get only sweatshirt
   }
   List<Products> get getBags{
-    return _products.where((element) => element.category =="Bags").toList();
+    return _products.where((element) => element.category ==Category.bags).toList();
     //get only sweatshirt
   }
   List<Products> get getShirts{
-    return _products.where((element) => element.category =="Shirts").toList();
+    return _products.where((element) => element.category == Category.tShirts).toList();
     //get only sweatshirt
   }
   List<Products> get getFavorites{
@@ -88,15 +88,7 @@ class ListOfProduct with ChangeNotifier{
     return _products.firstWhere((element) => element.id == productId);
     // for the product detail page
   }
-  /*
-  Products findByCategory(String category){
-    List<Products> categoryProduct = [];
-    if(_products.any((element) => element.category.contains(category))){
-      _products = categoryProduct;
-    }
-    return categoryProduct;
-  }
-   */
+  
 
 
 
