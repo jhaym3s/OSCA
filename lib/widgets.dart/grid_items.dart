@@ -19,11 +19,9 @@ class GridItem extends StatelessWidget {
           },
           child: Hero(
             tag: product.id!,
-            child: InteractiveViewer(
-              child: Image.asset(
-                product.imagePath!,
-                fit: BoxFit.fitHeight,
-              ),
+            child: Image.asset(
+              product.imagePath!,
+              fit: BoxFit.fitHeight,
             ),
           ),
         ),
