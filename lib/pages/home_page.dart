@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:oscafest/app_theme.dart';
 import 'package:oscafest/screen/grid_screen.dart';
+import 'package:oscafest/state/cart.dart';
+import 'package:provider/provider.dart';
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
 
@@ -20,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<Cart>(context);
     return Scaffold(
       backgroundColor:  kPrimaryColor,
       body:SafeArea(child: 
@@ -52,9 +55,11 @@ class _HomePageState extends State<HomePage> {
                     Stack(
         alignment: Alignment.topRight,
         children: [
-          IconButton(icon: const Icon(Icons.shopping_cart,color: kSecondaryColor,), onPressed: (){}),
-          const CircleAvatar(backgroundColor: Colors.orangeAccent,radius: 9.2,
-            child: Text("0",style: TextStyle(color: Colors.black,fontSize: 10),softWrap: true,),
+          IconButton(icon: const Icon(Icons.shopping_cart,color: kSecondaryColor,), onPressed: (){
+
+          }),
+         CircleAvatar(backgroundColor: Colors.orangeAccent,radius: 9.2,
+            child: Text(cart.itemCount.toString(),style: const TextStyle(color: Colors.black,fontSize: 10),softWrap: true,),
           ),
         ],
     ),

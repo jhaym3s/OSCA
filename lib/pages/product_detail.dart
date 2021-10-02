@@ -24,24 +24,32 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Row(
               children:  [
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    GestureDetector(
-                      onTap: () => Navigator.of(context).pop(),
-                      child: const Padding(
-                        padding:  EdgeInsets.all(8.0),
-                        child:  CircleAvatar(
-                          radius: 40,
-                          child: Icon(Icons.arrow_back_ios_new, color: kPrimaryColor,),
-                          backgroundColor: Colors.white,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          onTap: () => Navigator.of(context).pop(),
+                          child: const Padding(
+                            padding:  EdgeInsets.all(8.0),
+                            child:  CircleAvatar(
+                              radius: 35,
+                              child: Icon(Icons.arrow_back_ios_new, color: kPrimaryColor,),
+                              backgroundColor: Colors.white,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    const SizeTag(),
-                    const SizeTag(),
-                    const SizeTag(),
+                    Column(
+                      children: const [
+                        SizeTag(),
+                      ],
+                    )
+                   // const SizeTag(),
+                   // const SizeTag(),
                   ],
                 ),
                 Expanded( 
@@ -71,12 +79,12 @@ class SizeTag extends StatefulWidget {
 class _SizeTagState extends State<SizeTag> {
   @override
   Widget build(BuildContext context) {
-    return  const Padding(
-                        padding:  EdgeInsets.all(8.0),
+    return   const Padding(
+                        padding:   EdgeInsets.all(8.0),
                         child:  CircleAvatar(
-                          radius: 40,
-                          child: Icon(Icons.arrow_back_ios_new, color: kPrimaryColor,),
-                          backgroundColor: Colors.white,
+                          backgroundColor: kWhite,
+                          radius: 35,
+                          child:  Text("M", style: TextStyle(color: kSecondaryColor),)
                         ),
                       );
   }
