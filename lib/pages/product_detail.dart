@@ -4,6 +4,7 @@ import 'package:oscafest/state/products_provider.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatefulWidget {
+  const ProductDetailScreen({Key? key}):super(key: key);
   static const routeName = "product_details";
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
@@ -69,22 +70,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 }
 
-class SizeTag extends StatefulWidget {
-  const SizeTag({ Key? key }) : super(key: key);
+class SizeTag extends StatelessWidget {
+  const SizeTag({ Key? key, this.size }) : super(key: key);
 
-  @override
-  _SizeTagState createState() => _SizeTagState();
-}
+  final String? size;
 
-class _SizeTagState extends State<SizeTag> {
   @override
   Widget build(BuildContext context) {
-    return   const Padding(
-                        padding:   EdgeInsets.all(8.0),
+    return    Padding(
+                        padding:  const  EdgeInsets.all(8.0),
                         child:  CircleAvatar(
                           backgroundColor: kWhite,
                           radius: 35,
-                          child:  Text("M", style: TextStyle(color: kSecondaryColor),)
+                          child:  Text(size!, style: const TextStyle(color: kSecondaryColor),)
                         ),
                       );
   }

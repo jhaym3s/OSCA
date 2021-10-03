@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:oscafest/state/cart.dart';
 import 'package:provider/provider.dart';
 
-class CartItem extends StatelessWidget {
-  const CartItem({this.title, this.id, this.price, Key? key, this.quantity, this.productId})
+class CartScreen extends StatelessWidget {
+  const CartScreen({this.title, this.id, this.price, Key? key, this.quantity, this.productId})
       : super(key: key);
 
   final String? title;
@@ -34,11 +34,10 @@ class CartItem extends StatelessWidget {
         actions: [
           TextButton(onPressed: (){
           Navigator.of(context).pop(false);
-           Scaffold.of(context).hideCurrentSnackBar();
+           //Scaffold.of(context).hideCurrentSnackBar();
           // Scaffold.of(context).showSnackBar(SnackBar(content: Text("The product weren't deleted"),));
           }, child:const Text("NO")),
           TextButton(onPressed: (){
-            // Scaffold.of(context).hideCurrentSnackBar();
             Navigator.of(context).pop(true);
             // Scaffold.of(context).hideCurrentSnackBar();
             // Scaffold.of(context).showSnackBar(SnackBar(content: Text("So you no get money to buy you add am to cart"),));

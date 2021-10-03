@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oscafest/app_theme.dart';
+import 'package:oscafest/pages/cart_page.dart';
 import 'package:oscafest/screen/grid_screen.dart';
 import 'package:oscafest/state/cart.dart';
 import 'package:provider/provider.dart';
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
         alignment: Alignment.topRight,
         children: [
           IconButton(icon: const Icon(Icons.shopping_cart,color: kSecondaryColor,), onPressed: (){
-
+            Navigator.of(context).pushNamed(CartPage.routename);
           }),
          CircleAvatar(backgroundColor: Colors.orangeAccent,radius: 9.2,
             child: Text(cart.itemCount.toString(),style: const TextStyle(color: Colors.black,fontSize: 10),softWrap: true,),
