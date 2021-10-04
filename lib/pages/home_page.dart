@@ -25,33 +25,29 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
+      //appBar: AppBar(),
       backgroundColor:  kPrimaryColor,
       body:SafeArea(child: 
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children:  [
-          GestureDetector(
-                  /*
-                  onTap: (){
-                    setState(() {
-                      products..shuffle();
-                    });
-                  },
-                   */
-                  child: Image.asset(
-                    "assets/images/open_source.png",
-                    height: 15,
-                  ),
-                ),
+          Image.asset(
+            "assets/images/open_source.png",
+            height: 15,
+          ),
            Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                     //onTap: ()=>Scaffold.of(context).openDrawer(),
-                      child: Image.asset(
-                        "assets/images/drawer.png",
-                        height: 12,
-                      ),
+                    Builder(
+                      builder: (context) {
+                        return GestureDetector(
+                         onTap: ()=>Scaffold.of(context).openDrawer(),
+                          child: Image.asset(
+                            "assets/images/drawer.png",
+                            height: 12,
+                          ),
+                        );
+                      }
                     ),
                     Stack(
         alignment: Alignment.topRight,
@@ -81,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                               categoryPressed = category[index];
                           });
                         },
-                        child:  Text(category[index]),
+                        child:  Text(category[index],),
                         style: ElevatedButton.styleFrom(primary: Colors.white24,shape: RoundedRectangleBorder(
                             borderRadius:
                              BorderRadius.circular(30.0)),)
@@ -95,9 +91,7 @@ class _HomePageState extends State<HomePage> {
         ],),
       )
       ),
-      drawer: const Drawer(
-        child: Text("This is a drawer"),
-      ),
+      drawer: const Drawer(), 
     );
   }
 }
