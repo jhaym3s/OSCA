@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:oscafest/pages/cart_page.dart';
 import 'package:oscafest/pages/pages.dart';
 import 'package:oscafest/pages/product_detail.dart';
+import 'package:oscafest/state/cart.dart';
 import 'package:oscafest/state/products.dart';
 import 'package:oscafest/state/products_provider.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
  
          ChangeNotifierProvider(create: (BuildContext context) => Products(),),
          ChangeNotifierProvider(create: (BuildContext context) => ListOfProduct(),),
+          ChangeNotifierProvider(create: (BuildContext context) => Cart(),),
+
       ],
       child: MaterialApp(
         title: 'OSCA-FEST',
@@ -30,8 +34,8 @@ class MyApp extends StatelessWidget {
         ),
         home: const HomePage(),
         routes:  {
-          ProductDetailScreen.routeName:(context) =>ProductDetailScreen(),
-          // ProfilePage.routeName:(context) =>ProfilePage(),
+          ProductDetailScreen.routeName:(context) => const ProductDetailScreen(),
+          CartPage.routename: (context)=> const CartPage(),
           // AddProductScreen.routeName:(context) =>AddProductScreen(),
 
         },

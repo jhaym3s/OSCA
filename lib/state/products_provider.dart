@@ -38,7 +38,7 @@ class ListOfProduct with ChangeNotifier{
       productName: "Osca fest",
       category: Category.tShirts,
       id: "a5",
-      sizesAvailable: ["S", "M","L","XL","XXL"],
+      sizesAvailable: ["M","L","XL","XXL"],
       price:49.34),
     Products(
       imagePath: "assets/images/OS_sweatshirt1.jpg",
