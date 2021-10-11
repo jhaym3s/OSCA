@@ -3,7 +3,7 @@ import 'package:oscafest/state/cart.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({this.title, this.id, this.price, Key? key, this.quantity, this.productId})
+  const CartScreen({this.title, this.id, this.price, Key? key, this.quantity, this.productId, required this.image})
       : super(key: key);
 
   final String? title;
@@ -11,6 +11,7 @@ class CartScreen extends StatelessWidget {
   final String? id;
   final double? price;
   final int? quantity;
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -49,19 +50,7 @@ class CartScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.purpleAccent,
-              child: FittedBox(
-                child: Text(
-                  "$price",
-                  softWrap: true,
-                  style: const TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
+            leading: Image.asset(image!,),
             title: Text(
               title!,
               style: Theme.of(context).textTheme.headline6,

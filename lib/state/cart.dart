@@ -4,12 +4,14 @@ class CartItem {
   final int? quantity;
   final String? id;
   final double? price;
+  final String? image;
 
   CartItem({
-    @required this.title,
-    @required this.id,
-    @required this.price,
-    @required this.quantity
+     this.title,
+     this.id,
+     this.price,
+     this.quantity,
+     required this.image,
     });
 }
 
@@ -31,12 +33,15 @@ double get totalAmount{
     return total;
 }
   //used in the productItem.dart file
-void addItem(String productId, double price, String title){
+void addItem({String? productId, double? price, String? title, String? image}){
     if(items.containsKey(productId)){
-      _items.update(productId, (existingCartItem) => CartItem(title:existingCartItem.title ,
-          id: existingCartItem.id, price: existingCartItem.price , quantity: existingCartItem.quantity!+1));
+      _items.update(productId!, (existingCartItem) => CartItem(title:existingCartItem.title ,
+          id: existingCartItem.id, price: existingCartItem.price , 
+          image: existingCartItem.image,
+          quantity: existingCartItem.quantity!+1));
     }else {
-      _items.putIfAbsent(productId, () => CartItem(
+      _items.putIfAbsent(productId!, () => CartItem(
+          image:  image ,
           id: DateTime.now().toString(),
           title: title,
           price: price,
@@ -56,6 +61,7 @@ void removeItem(String productId){
       _items.update(productId, (existingCartItem) =>
           CartItem(title: existingCartItem.title,
           id:existingCartItem.id,
+          image: existingCartItem.image,
           price: existingCartItem.price,
           quantity:existingCartItem.quantity!-1)
       );
