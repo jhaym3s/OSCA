@@ -5,6 +5,7 @@ import 'package:oscafest/screen/grid_screen.dart';
 import 'package:oscafest/state/cart.dart';
 import 'package:provider/provider.dart';
 class HomePage extends StatefulWidget {
+  static const routeName = "homePage";
   const HomePage({ Key? key }) : super(key: key);
 
   @override
@@ -77,8 +78,8 @@ class _HomePageState extends State<HomePage> {
                               categoryPressed = category[index];
                           });
                         },
-                        child:  Text(category[index],),
-                        style: ElevatedButton.styleFrom(primary: Colors.white24,shape: RoundedRectangleBorder(
+                        child:  Text(category[index],style: TextStyle(color: category[index] == categoryPressed?kPrimaryColor:kSecondaryColor),),
+                        style: ElevatedButton.styleFrom(primary: category[index] == categoryPressed?kSecondaryColor:Colors.white24,shape: RoundedRectangleBorder(
                             borderRadius:
                              BorderRadius.circular(30.0)),)
                       ),

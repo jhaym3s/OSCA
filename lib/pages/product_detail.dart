@@ -194,7 +194,7 @@ class ButtomButtons extends StatelessWidget {
           ),
           onPressed: () {
             cart.addItem(
-                product.id!, product.price!, product.productName!);
+                productId: product.id!, price: product.price!, title: product.productName!, image: product.imagePath);
             final snackBar = SnackBar(
               content: Text("${product.productName} added to cart"),
               duration: const Duration(seconds: 3),
