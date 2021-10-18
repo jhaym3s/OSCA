@@ -55,7 +55,7 @@ class CartScreen extends StatelessWidget {
               title!,
               style: Theme.of(context).textTheme.headline6,
             ),
-            subtitle: Text("${price! * quantity!}"),
+            subtitle: Text("${(price!) * quantity!}"),
             trailing: Text("$quantity x"),
           ),
         ),
