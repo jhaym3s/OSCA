@@ -3,6 +3,7 @@ import 'package:oscafest/app_theme.dart';
 import 'package:oscafest/pages/cart_page.dart';
 import 'package:oscafest/screen/grid_screen.dart';
 import 'package:oscafest/state/cart.dart';
+import 'package:oscafest/widgets.dart/custom_drawer.dart';
 import 'package:provider/provider.dart';
 class HomePage extends StatefulWidget {
   static const routeName = "homePage";
@@ -92,7 +93,7 @@ class _HomePageState extends State<HomePage> {
         ],),
       )
       ),
-      drawer: const Drawer(), 
+      drawer: const CustomDrawer(), 
     );
   }
 }
